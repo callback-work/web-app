@@ -1,0 +1,78 @@
+.card {
+  display: grid;
+  align-content: start;
+  gap: var(--spacing-8);
+  min-inline-size: 0;
+}
+
+.muted {
+  color: var(--label-secondary);
+}
+
+.state {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-4) var(--spacing-6);
+  min-block-size: var(--spacing-20);
+}
+
+.empty {
+  display: grid;
+  justify-items: start;
+  gap: var(--spacing-6);
+}
+
+.emptyText {
+  display: grid;
+  gap: var(--spacing-2);
+}
+
+.legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 140px), 1fr));
+  gap: var(--spacing-5) var(--spacing-12);
+  margin: 0;
+}
+
+.stage {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+.stageLabel {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  min-inline-size: 0;
+}
+
+.stageCount {
+  margin: 0 0 0 auto;
+  font-variant-numeric: tabular-nums;
+}
+
+.swatch {
+  flex-shrink: 0;
+  inline-size: 8px;
+  block-size: 8px;
+  border-radius: 50%;
+  background: var(--meter-stack-segment-color);
+}
+
+.stageColor[data-stage='waiting'] {
+  --meter-stack-segment-color: var(--color-gray-500);
+}
+
+.stageColor[data-stage='in-progress'] {
+  --meter-stack-segment-color: var(--color-primary-500);
+}
+
+.stageColor[data-stage='offer'] {
+  --meter-stack-segment-color: var(--color-green-accent-500);
+}
+
+.stageColor[data-stage='rejected'] {
+  --meter-stack-segment-color: var(--color-red-accent-500);
+}

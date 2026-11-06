@@ -1,0 +1,27 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "extends": [
+    "./node_modules/config-oxc/configs/app.json",
+    "./node_modules/config-oxc/configs/react.json",
+    "./node_modules/config-oxc/configs/a11y.json",
+    "./node_modules/config-oxc/configs/test.json"
+  ],
+  "options": {
+    "typeAware": true
+  },
+  "settings": {
+    "jsx-a11y": {
+      "components": {
+        "Button": "button",
+        "Link": "a",
+        "Label": "label",
+        "TextArea": "textarea",
+        "Heading": "h1"
+      }
+    }
+  },
+  "ignorePatterns": ["dist", "coverage", "test-results", "playwright-report"],
+  "rules": {
+    "react/jsx-no-literals": "error"
+  }
+}

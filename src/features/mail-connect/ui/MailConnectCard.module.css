@@ -1,0 +1,21 @@
+.card {
+  display: grid;
+  align-content: start;
+  gap: var(--spacing-8);
+  min-inline-size: 0;
+}
+
+.muted {
+  color: var(--label-secondary);
+}
+
+.action {
+  display: grid;
+  justify-items: start;
+  gap: var(--spacing-3);
+}
+
+.header {
+  display: grid;
+  gap: var(--spacing-2);
+}

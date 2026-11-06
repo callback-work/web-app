@@ -1,0 +1,11 @@
+node_modules
+dist
+coverage
+test-results
+playwright-report
+.vitest-attachments
+__screenshots__
+*.tsbuildinfo
+.DS_Store
+.idea
+.vitest

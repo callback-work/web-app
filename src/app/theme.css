@@ -1,0 +1,52 @@
+:root:is(.light, .dark) {
+  --default-font-family: 'Montserrat Variable', Arial, sans-serif;
+
+  --color-primary-0: var(--color-amber-0);
+  --color-primary-100: var(--color-amber-100);
+  --color-primary-200: var(--color-amber-200);
+  --color-primary-300: var(--color-amber-300);
+  --color-primary-400: var(--color-amber-400);
+  --color-primary-500: var(--color-amber-500);
+  --color-primary-600: var(--color-amber-600);
+  --color-primary-700: var(--color-amber-700);
+  --color-primary-800: var(--color-amber-800);
+  --color-primary-900: var(--color-amber-900);
+  --color-primary-1000: var(--color-amber-1000);
+
+  --text-color-on-primary: var(--color-amber-1000);
+}
+
+:root.light {
+  --focus-color: var(--color-amber-800);
+  --fills-primary: oklch(0.8 0.2 75 / 0.32);
+  --fills-primary-hover: oklch(0.8 0.2 75 / 0.4);
+  --fills-primary-active: oklch(0.8 0.2 75 / 0.48);
+}
+
+:root.dark {
+  --focus-color: var(--color-amber-500);
+  --fills-primary: oklch(0.8 0.2 75 / 0.24);
+  --fills-primary-hover: oklch(0.8 0.2 75 / 0.3);
+  --fills-primary-active: oklch(0.8 0.2 75 / 0.36);
+}
+
+:root
+  :where([data-variant='primary'][data-appearance='fill']):not(:disabled, [aria-disabled='true']) {
+  --button-color: var(--text-color-on-primary);
+  --button-color-hover: var(--text-color-on-primary);
+  --button-color-active: var(--text-color-on-primary);
+}
+
+body {
+  margin: 0;
+  background: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--default-font-family);
+  -webkit-font-smoothing: antialiased;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}

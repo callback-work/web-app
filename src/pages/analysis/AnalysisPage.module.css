@@ -1,0 +1,10 @@
+.page {
+  display: grid;
+  justify-items: start;
+  gap: var(--spacing-8);
+  max-inline-size: 40rem;
+}
+
+.muted {
+  color: var(--label-secondary);
+}

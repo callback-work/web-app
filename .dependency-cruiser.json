@@ -1,0 +1,117 @@
+{
+  "forbidden": [
+    {
+      "name": "no-circular",
+      "severity": "error",
+      "from": {},
+      "to": {
+        "circular": true
+      }
+    },
+    {
+      "name": "no-cross-feature",
+      "comment": "Фичи не импортируют друг друга. Общее выносим в shared, сборку делает страница.",
+      "severity": "error",
+      "from": {
+        "path": "^src/features/([^/]+)/"
+      },
+      "to": {
+        "path": "^src/features/([^/]+)/",
+        "pathNot": "^src/features/$1/"
+      }
+    },
+    {
+      "name": "feature-entry-only",
+      "comment": "В фичу снаружи входим только через index.ts или testing.ts.",
+      "severity": "error",
+      "from": {
+        "path": "^src/(app|pages|shared)/"
+      },
+      "to": {
+        "path": "^src/features/[^/]+/(?!index\\.ts$|testing\\.ts$)"
+      }
+    },
+    {
+      "name": "fakes-only-in-composition-and-tests",
+      "comment": "Фейковые адаптеры подключает только composition.ts и тесты.",
+      "severity": "error",
+      "from": {
+        "path": "^src/",
+        "pathNot": [
+          "^src/app/composition\\.ts$",
+          "\\.test\\.tsx?$",
+          "^src/shared/testing/",
+          "^src/features/[^/]+/testing\\.ts$"
+        ]
+      },
+      "to": {
+        "path": "(^src/features/[^/]+/testing\\.ts$|/api/fake-[^/]+\\.ts$)"
+      }
+    },
+    {
+      "name": "model-is-pure",
+      "comment": "model не знает про React, UI и API.",
+      "severity": "error",
+      "from": {
+        "path": "^src/features/[^/]+/model/"
+      },
+      "to": {
+        "path": "(^node_modules/(react|react-dom|@vega-ui|@tanstack)/|/ui/|/api/)"
+      }
+    },
+    {
+      "name": "shared-is-independent",
+      "severity": "error",
+      "from": {
+        "path": "^src/shared/",
+        "pathNot": "^src/shared/testing/"
+      },
+      "to": {
+        "path": "^src/(app|pages|features)/"
+      }
+    },
+    {
+      "name": "features-do-not-know-pages-and-app",
+      "severity": "error",
+      "from": {
+        "path": "^src/features/"
+      },
+      "to": {
+        "path": "^src/(app|pages)/"
+      }
+    },
+    {
+      "name": "pages-do-not-know-app",
+      "severity": "error",
+      "from": {
+        "path": "^src/pages/"
+      },
+      "to": {
+        "path": "^src/app/"
+      }
+    },
+    {
+      "name": "vitest-only-in-tests",
+      "severity": "error",
+      "from": {
+        "pathNot": ["\\.test\\.tsx?$", "^src/shared/testing/"]
+      },
+      "to": {
+        "path": "^node_modules/(vitest|@vitest|vitest-browser-react)/"
+      }
+    }
+  ],
+  "options": {
+    "doNotFollow": {
+      "path": "node_modules"
+    },
+    "tsPreCompilationDeps": true,
+    "tsConfig": {
+      "fileName": "tsconfig.app.json"
+    },
+    "enhancedResolveOptions": {
+      "exportsFields": ["exports"],
+      "conditionNames": ["import", "require", "node", "default", "types"]
+    }
+  }
+}

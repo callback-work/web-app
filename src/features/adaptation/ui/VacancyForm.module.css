@@ -1,0 +1,24 @@
+.form {
+  display: grid;
+  gap: var(--spacing-8);
+  container-type: inline-size;
+}
+
+.field {
+  display: grid;
+  gap: var(--spacing-3);
+}
+
+.hint {
+  color: var(--label-secondary);
+}
+
+.submit {
+  justify-self: start;
+}
+
+@container (width < 480px) {
+  .submit {
+    justify-self: stretch;
+  }
+}
